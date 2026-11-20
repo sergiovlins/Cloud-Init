@@ -1,0 +1,2 @@
+ssh_public_key = "ssh-ed25519 AAAA... usuario@maquina"
+ssh_cidr       = "200.10.20.30/32"

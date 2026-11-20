@@ -1,0 +1,20 @@
+#cloud-config
+
+# Nome da máquina
+hostname: vm-cloud-init
+manage_etc_hosts: true
+
+# Atualiza os índices de pacotes (apt update)
+package_update: true
+
+# Instala Docker e Nginx
+packages:
+  - docker.io
+  - nginx
+
+# Inicia os serviços e libera o Docker para o usuário ubuntu
+runcmd:
+  - systemctl enable --now docker nginx
+  - usermod -aG docker ubuntu
+
+final_message: "Cloud-Init finalizado em $UPTIME segundos"
